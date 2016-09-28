@@ -23,6 +23,8 @@
 	$gender = "male";
 	$signupage = "";
 	$signupageError = "";
+	$loginpassword = "";
+	$loginpasswordError = "";
 	
 	//kas on üldse olemas
 	if (isset ($_POST["signupEmail"])) {
@@ -99,11 +101,14 @@
 		} else {
 			
 			$gender = $_POST["gender"];
-				
+
+		}
+	}
+	if (isset($_POST["loginPassword"])){
+		
+		if (empty($_POST["loginPassword"])){
 			
-			
-			
-			
+			$loginpasswordError = "insert your password";
 		}
 	}
 	$error= "";
@@ -136,7 +141,7 @@
 			
 			<br><br>
 			
-			<input placeholder="Parool" name="loginPassword" type="password">
+			<input placeholder="Parool" name="loginPassword" type="password"> <?php echo $loginpasswordError; ?>
 			
 			
 			<br><br>
